@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* Start of ready styles */
+
+.color_b {
+    color: #3F8CFF !important;
+}
+
+.b_color_b {
+    background-color: #3F8CFF !important;
+}
+
+.color_g {
+    color: #7D8592 !important;
+}
+
+.b_color_g {
+    background-color: #7D8592 !important;
+}
+
+.font_f_n {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+/* End of ready styles */
+
+
+/* Starting of Sign in page */
+
+.sign_in .s_main > .s_b1 {
+    height: 100vh;
+}
+
+.sign_in .s_main > .s_b2 > .sb2_header {
+    width: 450px;
+}
+
+.sign_in .s_main > .s_b2 > .sb2_header > h1 {
+    padding-bottom: 60px;
+}
+
+.sign_in .s_main > .s_b2 > form input {
+    border: 1px solid #D8E0F0;
+    border-radius: 15px;
+}
+
+.sign_in .s_main > .s_b2 > form input:focus {
+    color: #7D8592;
+}
+
+.sign_in .s_main > .s_b2 > form > .input_b {
+    padding-top: 80px;
+}
+
+.sign_in .s_main > .s_b2 > form > .input_b > a {
+    text-decoration: none;
+    padding: 16px 0px;
+}
+
+.sign_in .s_main > .s_b2 > form > .input_b > a:hover {
+    border: 2px solid #3F8CFF;
+    background-color: #ffffff !important;
+    color: #3F8CFF !important;
+    padding: 14px 0px;
+}
+
+/* Ending of Sign in page */
+
+@media (max-width: 576px) {
+
+    .sign_in .s_main > .s_b2 {
+        width: 100%;
+        padding-top: 80px !important;
+    }
+
+    .sign_in .s_main > .s_b2 > .sb2_header {
+        width: 100%;
+    }
+
+    .sign_in .s_main > .s_b2 > .sb2_header > h1 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .sign_in .s_main > .s_b2 > form > .input_b {
+        padding-top: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .sign_in .s_main > .s_b2 {
+        height: 100vh;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .sign_in .s_main > .s_b1 > .sb_1_logo > img {
+        max-width: 40px !important;
+    }
+
+    .sign_in .s_main > .s_b1 > div > img {
+        max-width: 400px !important;
+    }
+
+    .sign_in .s_main > .s_b2 {
+        padding: 0px 20px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (min-width: 1500px) {
+
+    .sign_in .s_main > .s_b2 {
+        padding: 0px 20px !important;
+    }
+
+    .sign_in .s_main > .s_b2 > .sb2_header {
+        width: 700px;
+    }
+}

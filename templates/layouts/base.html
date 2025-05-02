@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Bussiness manager app">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="allayorovbobur21">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iservice</title>
+
+    <!-- links -->
+    <link rel="stylesheet" href="{% static "main/css/main.css" %}">
+    <link rel="stylesheet" href="{% static "/bootstrap-5/css/bootstrap.min.css" %}">
+
+    <!-- links that are global -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+</head>
+<body>
+
+<main class="sidebar_l px-3 py-3">
+
+    {% include "layouts/navbar.html" %}
+    {% block content %}
+
+    {% endblock content %}
+    </div>
+</main>
+
+<script src="{% static '/main/js/main.js' %}"></script>
+<script src="{% static '/bootstrap-5/js/bootstrap.bundle.min.js' %}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.querySelector(".navbar-toggler");
+        const sidebar = document.querySelector(".sidebarl_b");
+        const navbars = document.querySelectorAll(".navbar_b"); // select ALL navbar_b elements
+
+        toggleButton.addEventListener("click", function () {
+            sidebar.classList.toggle("sidebar-collapsed");
+
+            navbars.forEach(function (navbar) {
+                navbar.classList.toggle("navbar_c"); // toggle .navbar_c for each navbar_b
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

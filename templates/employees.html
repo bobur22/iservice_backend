@@ -1,0 +1,629 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section id="emp" style="height: 100%; overflow-y: auto; display: block;">
+
+        <div class="emp_set col-12 row ps-5 pb-4 m-0 justify-content-between align-items-center"
+             style="background-color: #f4f9fd; padding-top: 50px;">
+            <div class="col-4 px-0">
+                <h1 class="">Employees (6)</h1>
+            </div>
+
+            <div class="col-4 d-flex justify-content-end align-items-center">
+
+                <div class="emp_f col-2 px-0  me-5">
+
+                    <div class="dropdown">
+
+                        <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block"
+                           href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                           aria-controls="offcanvasWithBothOptions" style="border-radius: 14px; height: 56px;">
+                            <i class="bi bi-funnel position-absolute fs-4 text-black"></i>
+                        </a>
+
+                        <div class="offcanvas offcanvas-end my-3 me-5" style="border-radius: 24px;"
+                             data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                             aria-labelledby="offcanvasWithBothOptionsLabel">
+                            <div class="offcanvas-header px-4 py-4" style="border-bottom: 1px solid #E4E6E8;">
+                                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filters</h5>
+                                <button type="button" class="btn-close text-dark fs-6 border-0 p-3"
+                                        style="border-radius: 10px; background-color: #F4F9FD !important;"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+
+                            <div class="offcanvas-body px-0">
+                                <form action="">
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <p class="font_f_n color_g mb-2 fw-medium">Period</p>
+                                        <div class="">
+                                            <input type="date"
+                                                   class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                   placeholder="Select Period" name="Period"
+                                                   style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                        </div>
+                                    </div>
+                                    <div class="py-3 px-4"
+                                         style="border-top: 1px solid #E4E6E8; border-bottom: 1px solid #E4E6E8;">
+                                        <p class="font_f_n color_g mb-2 fw-medium">Task Group</p>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="py-3 px-4" style="border-bottom: 1px solid #E4E6E8;">
+                                        <p class="font_f_n color_g mb-2 fw-medium">Task Group</p>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n pb-2 ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="flexCheckDefault">
+                                            <label class="form-check-label font_f_n ps-2 fw-medium"
+                                                   for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <p class="font_f_n color_g mb-2 fw-medium">Priority</p>
+                                        <div class="">
+                                            <select class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                    aria-label="Default select example"
+                                                    style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                                <option selected>Priority</option>
+                                                <option value="1">Hurry</option>
+                                                <option value="2">Medium</option>
+                                                <option value="3">Low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="py-3 px-4 d-flex justify-content-between align-items-center ">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-info-circle-fill fs-5 color_b"></i>
+                                            <span class="ps-3 color_g font_f_n fs-6 fw-medium">Dashboard</span>
+                                        </div>
+
+                                        <button type="submit"
+                                                class="btn b_color_b text-white col-lg-6 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                                                style="border-radius: 14px; height: 56px; text-decoration: none;">Save
+                                            Filters (3)
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 col-2 px-0">
+                    <button type="button"
+                            class="btn b_color_b text-white col-lg-6 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold d-flex justify-content-evenly align-items-center  hover_block_b"
+                            style="border-radius: 14px; height: 56px; text-decoration: none; color: black;width: 185px;"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                        <i class="bi bi-plus fs-3 text-black"></i>
+                        Add Employee
+                    </button>
+
+                    <div class="modal fade" style="border-radius: 24px;" id="exampleModal" tabindex="-1"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                            <div class="modal-content pt-4 container border-0" style="border-radius: 24px;">
+                                <div class="modal-header border-0">
+                                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Add Employee</h5>
+                                    <button type="button" class="btn-close text-dark fs-6 border-0 p-3"
+                                            style="border-radius: 10px; background-color: #F4F9FD !important;"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <form action="">
+
+                                    <div class="modal-body px-0">
+                                        <div class="emp_inp_d pt-2 pb-4">
+                                            <p class="font_f_n color_g mb-2 fw-medium">Text</p>
+                                            <div class="">
+                                                <input type="text"
+                                                       class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                       placeholder="Select Period" name="Period"
+                                                       style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                            </div>
+                                        </div>
+                                        <div class="emp_inp_d pt-2 pb-4">
+                                            <p class="font_f_n color_g mb-2 fw-medium">Period</p>
+                                            <div class="">
+                                                <input type="date"
+                                                       class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                       placeholder="Select Period" name="Period"
+                                                       style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                            </div>
+                                        </div>
+                                        <div class="emp_inp_d pt-2 pb-4">
+                                            <p class="font_f_n color_g mb-2 fw-medium">Priority</p>
+                                            <div class="">
+                                                <select class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                        aria-label="Default select example"
+                                                        style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                                    <option selected>Priority</option>
+                                                    <option value="1">Hurry</option>
+                                                    <option value="2">Medium</option>
+                                                    <option value="3">Low</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer pb-4 border-0">
+                                        <button type="submit"
+                                                class="btn b_color_b text-white col-lg-2 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                                                style="border-radius: 14px; height: 56px; text-decoration: none;">Submit
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="emp_data row ps-5 me-2" style="display: block; max-height: 75%; overflow-y: auto;">
+            <div class="px-4 bg-white d-flex justify-content-between align-items-center" style="border-radius: 24px;">
+                <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                    <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                    <div class="">
+                        <h3 class="font_f_n fs-6 fw-bold mb-0">Evan Yates</h3>
+                        <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">evanyates@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Gender</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Male</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Birthday</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Apr 12, 1995</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Age</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">25</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Position</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">UI/UX Designer</p>
+                    </div>
+                    <div class="">
+                        <button type="button"
+                                class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                style="border-radius: 14px; background-color: #f4f9fd;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#edit_employee">
+                            <i class="bi bi-three-dots-vertical fs-3" style="color: black !important;"></i>
+                        </button>
+                        <div class="modal fade" style="border-radius: 24px;" id="edit_employee" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                <div class="modal-content pt-4 container border-0" style="border-radius: 24px;">
+                                    <div class="modal-header border-0">
+                                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Edit
+                                            Employee</h5>
+                                        <button type="button" class="btn-close text-dark fs-6 border-0 p-3"
+                                                style="border-radius: 10px; background-color: #F4F9FD !important;"
+                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="">
+
+                                        <div class="modal-body px-0">
+                                            <div class="emp_inp_d pt-2 pb-4">
+                                                <p class="font_f_n color_g mb-2 fw-medium">Text</p>
+                                                <div class="">
+                                                    <input type="text"
+                                                           class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                           placeholder="Select Period" name="Period"
+                                                           style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                                </div>
+                                            </div>
+                                            <div class="emp_inp_d pt-2 pb-4">
+                                                <p class="font_f_n color_g mb-2 fw-medium">Period</p>
+                                                <div class="">
+                                                    <input type="date"
+                                                           class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                           placeholder="Select Period" name="Period"
+                                                           style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                                </div>
+                                            </div>
+                                            <div class="emp_inp_d pt-2 pb-4">
+                                                <p class="font_f_n color_g mb-2 fw-medium">Priority</p>
+                                                <div class="">
+                                                    <select class="form-control py-3 ps-4 pe-4 font_f_n color_g shadow-sm bg-body"
+                                                            aria-label="Default select example"
+                                                            style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                                        <option selected>Priority</option>
+                                                        <option value="1">Hurry</option>
+                                                        <option value="2">Medium</option>
+                                                        <option value="3">Low</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer pb-4 border-0">
+                                            <button type="submit"
+                                                    class="btn b_color_b text-white col-lg-2 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                                                    style="border-radius: 14px; height: 56px; text-decoration: none;">
+                                                Submit
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 px-4 bg-white d-flex justify-content-between align-items-center"
+                 style="border-radius: 24px;">
+                <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                    <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                    <div class="">
+                        <h3 class="font_f_n fs-6 fw-bold mb-0">Evan Yates</h3>
+                        <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">evanyates@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Gender</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Male</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Birthday</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Apr 12, 1995</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Age</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">25</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Position</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">UI/UX Designer</p>
+                    </div>
+                    <div class="">
+                        <button type="button"
+                                class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                style="border-radius: 14px; background-color: #f4f9fd;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#edit_employee_1">
+                            <i class="bi bi-three-dots-vertical fs-3" style="color: black !important;"></i>
+                        </button>
+                        <div class="modal fade" id="edit_employee_1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Employee
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 px-4 bg-white d-flex justify-content-between align-items-center"
+                 style="border-radius: 24px;">
+                <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                    <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                    <div class="">
+                        <h3 class="font_f_n fs-6 fw-bold mb-0">Evan Yates</h3>
+                        <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">evanyates@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Gender</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Male</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Birthday</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Apr 12, 1995</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Age</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">25</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Position</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">UI/UX Designer</p>
+                    </div>
+                    <div class="">
+                        <button type="button"
+                                class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                style="border-radius: 14px; background-color: #f4f9fd;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#edit_employee">
+                            <i class="bi bi-three-dots-vertical fs-3" style="color: black !important;"></i>
+                        </button>
+                        <div class="modal fade" id="edit_employee" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Employee
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 px-4 bg-white d-flex justify-content-between align-items-center"
+                 style="border-radius: 24px;">
+                <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                    <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                    <div class="">
+                        <h3 class="font_f_n fs-6 fw-bold mb-0">Evan Yates</h3>
+                        <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">evanyates@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Gender</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Male</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Birthday</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Apr 12, 1995</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Age</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">25</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Position</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">UI/UX Designer</p>
+                    </div>
+                    <div class="">
+                        <button type="button"
+                                class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                style="border-radius: 14px; background-color: #f4f9fd;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#edit_employee">
+                            <i class="bi bi-three-dots-vertical fs-3" style="color: black !important;"></i>
+                        </button>
+                        <div class="modal fade" id="edit_employee" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Employee
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 px-4 bg-white d-flex justify-content-between align-items-center"
+                 style="border-radius: 24px;">
+                <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                    <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                    <div class="">
+                        <h3 class="font_f_n fs-6 fw-bold mb-0">Evan Yates</h3>
+                        <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">evanyates@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Gender</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Male</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Birthday</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Apr 12, 1995</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Age</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">25</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Position</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">UI/UX Designer</p>
+                    </div>
+                    <div class="">
+                        <button type="button"
+                                class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                style="border-radius: 14px; background-color: #f4f9fd;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#edit_employee">
+                            <i class="bi bi-three-dots-vertical fs-3" style="color: black !important;"></i>
+                        </button>
+                        <div class="modal fade" id="edit_employee" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Employee
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 px-4 bg-white d-flex justify-content-between align-items-center"
+                 style="border-radius: 24px;">
+                <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                    <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                    <div class="">
+                        <h3 class="font_f_n fs-6 fw-bold mb-0">Evan Yates</h3>
+                        <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">evanyates@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Gender</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Male</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Birthday</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">Apr 12, 1995</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Age</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">25</p>
+                    </div>
+                    <div class="">
+                        <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Position</h3>
+                        <p class="font_f_n mb-0" style="font-size: 14px;">UI/UX Designer</p>
+                    </div>
+                    <div class="">
+                        <button type="button"
+                                class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                style="border-radius: 14px; background-color: #f4f9fd;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                data-bs-whatever="@mdo" id="btnjon">
+                            <i class="bi bi-three-dots-vertical fs-3" style="color: black !important;"></i>
+                        </button>
+
+                        <div class="modal fade" id="edit_employee" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Employee
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock content %}

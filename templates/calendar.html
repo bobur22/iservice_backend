@@ -1,0 +1,596 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="" style="height: 100%; overflow-y: auto; display: block;">
+
+        <div class="col-12 row ps-5 pb-4 m-0 justify-content-between align-items-center"
+             style="background-color: #f4f9fd; padding-top: 50px; position: sticky; top: 0; z-index: 2;">
+            <div class="col-4 px-0">
+                <h1 class="">Calendar</h1>
+            </div>
+        </div>
+
+        <div class="row ms-5 px-3 me-2 bg-white" style="border-radius: 24px;">
+            <div class="py-3 d-flex justify-content-center align-items-center">
+                        <span>
+                            <i class="bi bi-arrow-left fs-4 color_b"></i>
+                        </span>
+                <span class="font_f_n fs-5 px-4 fw-bolder">
+                            September, 2020
+                        </span>
+                <span>
+                            <i class="bi bi-arrow-right fs-4 color_b"></i>
+                        </span>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Monday</span>
+                    </th>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Tuesday</span>
+                    </th>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Wednesday</span>
+                    </th>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Thursday</span>
+                    </th>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Friday</span>
+                    </th>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Saturday</span>
+                    </th>
+                    <th scope="col" class="text-center" style="background-color: #F4F9FD;">
+                        <span class="font_f_n color_g fs-6 fw-medium">Sunday</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">31</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">1</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">2</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">3</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">4</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">5</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 ">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">6</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">31</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">1</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">2</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">3</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">4</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">5</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">6</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">31</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">1</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">2</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">3</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">4</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">5</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">6</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">31</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">1</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">2</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">3</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">4</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">5</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">6</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">31</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">1</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">2</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">3</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">4</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">5</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="hover_b_3 py-3">
+                        <a href="" style="text-decoration: none;">
+                            <p class="text-center m-0 color_g mb-1 rounded-3">6</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-2 rounded-3 color_g" style="background-color: #d5d8de;">
+                                    <i class="bi bi-circle"></i>
+                                    <span>20</span>
+                                </div>
+                                <div class="px-2 rounded-3" style="background-color: #E0F9F2; color: #00D097;">
+                                    <i class="bi bi-check2-square"></i>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+{% endblock content %}
