@@ -1,0 +1,335 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section id="emp" style="height: 100%; overflow-y: auto; display: block;">
+
+        <div class="emp_set col-12 row ps-5 pb-4 m-0 justify-content-between align-items-center"
+             style="background-color: #f4f9fd; padding-top: 50px;">
+            <div class="col-4 px-0">
+                <h1 class="font_f_n">Customers ({{ c_count }})</h1>
+            </div>
+
+            <div class="col-4 d-flex justify-content-between align-items-center">
+
+                <div class="emp_f col-2 px-0">
+                    <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block"
+                       href="#" onclick="reloadPage()" style="border-radius: 14px; height: 56px;">
+                        <i class="bi bi-arrow-clockwise position-absolute fs-4 text-black"></i>
+                    </a>
+                </div>
+
+                <div class="emp_f col-2 px-0">
+
+                    <div class="dropdown">
+
+                        <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block"
+                           href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                           aria-controls="offcanvasWithBothOptions" style="border-radius: 14px; height: 56px;">
+                            <i class="bi bi-funnel position-absolute fs-4 text-black"></i>
+                        </a>
+
+                        <div class="offcanvas offcanvas-end my-3 me-5" style="border-radius: 24px;"
+                             data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                             aria-labelledby="offcanvasWithBothOptionsLabel">
+                            <div class="offcanvas-header px-4 py-4" style="border-bottom: 1px solid #E4E6E8;">
+                                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filters</h5>
+                                <button type="button" class="btn-close text-dark fs-6 border-0 p-3"
+                                        style="border-radius: 10px; background-color: #F4F9FD !important;"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body px-0">
+                                <form method="get">
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.full_name.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Full Name</label>
+                                        <div>
+                                            {{ filter.form.full_name }}
+                                        </div>
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.p_number.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Phone Number</label>
+                                        <div>
+                                            {{ filter.form.p_number }}
+                                        </div>
+                                    </div>
+
+                                    {% if request.user.role == 'director' %}
+
+                                        <div class="emp_inp_d pt-2 pb-4 px-4">
+                                            <label for="{{ filter.form.location.id_for_label }}"
+                                                   class="form-label font_f_n color_g mb-2 fw-medium">Location</label>
+                                            <div>
+                                                {{ filter.form.location }}
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.email.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Email</label>
+                                        <div>
+                                            {{ filter.form.email }}
+                                        </div>
+                                    </div>
+
+                                    <div class="py-3 px-4 d-flex justify-content-between align-items-center"
+                                         style="padding-top: 200px !important;">
+                                        <a class="btn col-lg-5 col-2 px-0 bg-white py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block"
+                                           href="{% url 'customers' %}"
+                                           style="border-radius: 14px; height: 56px; text-decoration: none;">Clear
+                                            filter</a>
+
+                                        <button type="submit"
+                                                class="btn b_color_b text-white col-lg-5     col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                                                style="border-radius: 14px; height: 56px; text-decoration: none;">
+                                            Save Filters
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% if request.user.role == "director" %}
+
+                    <div class="col-lg-6 col-2 px-0">
+
+                        <a href="{% url 'download_customers_excel' %}?{{ request.GET.urlencode }}"
+                           class="btn text-white col-lg-6 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold d-flex justify-content-evenly align-items-center hover_block_g"
+                           style="border-radius: 14px; height: 56px; text-decoration: none; color: black;width: 185px; background-color: #00D097;">
+                            <i class="bi bi-plus fs-3 text-black"></i>
+                            Download Excel
+                        </a>
+                    </div>
+
+                {% else %}
+
+                    <div class="col-lg-6 col-2 px-0">
+                        <button type="button"
+                                class="btn b_color_b text-white col-lg-6 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold d-flex justify-content-evenly align-items-center  hover_block_b"
+                                style="border-radius: 14px; height: 56px; text-decoration: none; color: black;width: 185px;"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                            <i class="bi bi-plus fs-3 text-black"></i>
+                            Add Customer
+                        </button>
+
+                        <div class="modal fade" style="border-radius: 24px;" id="exampleModal" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                <div class="modal-content pt-4 container border-0"
+                                     style="border-radius: 24px; max-height: 90vh;">
+                                    <div class="modal-header border-0">
+                                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Add Employee</h5>
+                                        <button type="button" class="btn-close text-dark fs-6 border-0 p-3"
+                                                style="border-radius: 10px; background-color: #F4F9FD !important;"
+                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="{% url 'customers' %}" method="POST">
+
+                                        {% csrf_token %}
+
+                                        <div class="modal-body px-0" style="overflow-y: auto; max-height: 65vh;">
+
+                                            <div class="emp_inp_d pt-2 pb-4">
+                                                <p class="font_f_n color_g mb-2 fw-medium">Full Name</p>
+                                                <div class="">
+                                                    {{ form.full_name }}
+                                                    {% for error in form.full_name.errors %}
+                                                        <p class="text-danger fw-bold mt-2">
+                                                            <i class="bi bi-exclamation-circle me-1"></i>
+
+                                                            {{ error }}
+                                                        </p>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="emp_inp_d pt-2 pb-4">
+                                                <p class="font_f_n color_g mb-2 fw-medium">Phone Number</p>
+                                                <div class="">
+                                                    {{ form.p_number }}
+                                                    {% for error in form.p_number.errors %}
+                                                        <p class="text-danger fw-bold mt-2">
+                                                            <i class="bi bi-exclamation-circle me-1"></i>
+
+                                                            {{ error }}
+                                                        </p>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            {% if request.user.role == 'director' %}
+                                                <div class="emp_inp_d pt-2 pb-4">
+                                                    <p class="font_f_n color_g mb-2 fw-medium">Email</p>
+                                                    <div class="">
+                                                        {{ form.email }}
+                                                        {% for error in form.email.errors %}
+                                                            <p class="text-danger fw-bold mt-2">
+                                                                <i class="bi bi-exclamation-circle me-1"></i>
+
+                                                                {{ error }}
+                                                            </p>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            <div class="emp_inp_d pt-2 pb-4">
+                                                <p class="font_f_n color_g mb-2 fw-medium">Description</p>
+                                                <div class="">
+                                                    {{ form.description }}
+                                                    {% for error in form.description.errors %}
+                                                        <p class="text-danger fw-bold mt-2">
+                                                            <i class="bi bi-exclamation-circle me-1"></i>
+
+                                                            {{ error }}
+                                                        </p>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer pb-4 border-0">
+                                            <button type="submit"
+                                                    class="btn b_color_b text-white col-lg-2 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                                                    style="border-radius: 14px; height: 56px; text-decoration: none;">
+                                                Submit
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="emp_data row ps-5 me-2" style="display: block; height: 78%; overflow-y: auto;">
+            {% for customer in filter.qs %}
+                <div class="mb-4 px-4 bg-white d-flex justify-content-between align-items-center"
+                     style="border-radius: 24px;">
+                    <div class="col-3 py-3 d-flex justify-content-start align-items-center" style="color: black;">
+                        <img src="{% static 'main/img/profile_image.png' %}" alt="" class="col-3 me-4 rounded-circle">
+                        <div class="">
+                            <h3 class="font_f_n fs-6 fw-bold mb-0">{{ customer.full_name }}</h3>
+                            <p class="font_f_n color_g2 mb-0" style="font-size: 14px;">{% if customer.email != None %}
+                                {{ customer.email }}
+                            {% else %}
+                                email@gmail.com
+                            {% endif %}</p>
+                        </div>
+                    </div>
+                    <div class="col-8 py-3 d-flex justify-content-between align-items-center" style="color: black;">
+                        <div class="">
+                            <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Phone number</h3>
+                            <p class="font_f_n mb-0" style="font-size: 14px;">{{ customer.p_number }}</p>
+                        </div>
+                        <div class="">
+                            <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Description</h3>
+                            <p class="font_f_n mb-0" style="font-size: 14px;">{% if customer.description != '' %}
+                                {{ customer.description|truncatechars_html:27 }}
+                            {% else %}
+                                Lorem ipsum dolor sit amet,
+                            {% endif %}</p>
+                        </div>
+
+                        {% if request.user.role == 'director' %}
+
+                            <div class="">
+                                <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Location</h3>
+                                <p class="font_f_n mb-0" style="font-size: 14px;">{{ customer.location }}</p>
+                            </div>
+
+                        {% endif %}
+
+                        {% if request.role == "employee" %}
+
+                            <div class="">
+                                <a href="{% url 'customer_detail' id=customer.id %}"
+                                   class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                   style="border-radius: 14px; background-color: #f4f9fd;">
+                                    <i class="bi bi-three-dots-vertical fs-3"
+                                       style="color: black !important;"></i>
+                                </a>
+                            </div>
+
+                        {% else %}
+
+                            <div class="dropdown">
+
+                                <button class="btn text-white border-0 d-flex justify-content-evenly align-items-center"
+                                        style="border-radius: 14px; background-color: #f4f9fd;" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical fs-3"
+                                       style="color: black !important;"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'customer_detail' id=customer.id %}">Edit</a></li>
+
+
+                                    <li><a class="dropdown-item" data-bs-toggle="modal"
+                                           data-bs-target="#customer_{{ customer.id }}" href="">Delete</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- Modal for Delete task -->
+                            <div class="modal fade border-0" id="customer_{{ customer.id }}" tabindex="-1"
+                                 aria-labelledby="c_{{ customer.full_name }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content border-0 py-2" style="border-radius: 24px;">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="c_{{ customer.full_name }}">Checking</h1>
+                                            <button type="button" class="btn-close"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="font_f_n fs-5 mb-0">Are you sure you want to delete <span
+                                                    class="text-danger"
+                                                    style="text-decoration: line-through"> {{ customer.full_name|truncatechars_html:60 }}</span>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer py-3 px-4 d-flex justify-content-around align-items-center">
+                                            <a class="btn col-lg-3 col-2 btn-outline-secondary py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold"
+                                               href="{% url 'customers' %}"
+                                               style="border-radius: 14px; height: 56px; text-decoration: none;">Close</a>
+                                            <a class="btn col-lg-3 col-2 btn-outline-danger py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold"
+                                               style="border-radius: 14px; height: 56px;text-decoration: none;"
+                                               href="{% url 'customer_delete' id=customer.id %}">Delete</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End modal for Delete task -->
+
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            {% empty %}
+                <h3 class="font_f_n color_g2">There is no such customer</h3>
+            {% endfor %}
+        </div>
+        </div>
+
+
+    </section>
+
+{% endblock content %}

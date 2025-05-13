@@ -3,68 +3,108 @@
 
 {% block content %}
 
-    <!-- <section class="" style="height: 100%; overflow-y: auto; display: block;" >
-
-                <div class="col-12 row ps-5 pb-4 m-0 justify-content-between align-items-center" style="background-color: #f4f9fd; padding-top: 50px;">
-                    <div class="col-4 px-0">
-                        <h1 class="">Dashboard</h1>
-                    </div>
-
-                    <div class="col-4 d-flex justify-content-end align-items-center">
-
-                        <div class="col-2 px-0  me-5">
-
-                            <div class="dropdown">
-
-                                <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block" href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" style="border-radius: 14px; height: 56px;">
-                                    <i class="bi bi-funnel position-absolute fs-4 text-black"></i>
-                                </a>
-
-                                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <section class="pt-5 ps-4" style="height: 100%;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 d-flex align-items-strech">
+                    <div class="card w-100 bg-white border-0 p-3" style="border-radius: 24px !important;">
+                        <div class="card-body">
+                            <div class="pb-3 d-sm-flex d-block align-items-center justify-content-between mb-9">
+                                <div class="mb-3 mb-sm-0">
+                                    <h5 class="card-title fw-semibold">Sales Overview</h5>
                                 </div>
-                                <div class="offcanvas-body">
-                                    <p>Try scrolling the rest of the page to see this option in action.</p>
+                                <div>
+                                    <select class="form-select px-5 py-2 font_f_n color_g shadow-sm bg-body "
+                                            style="border-radius: 14px; border: 1px solid #D8E0F0 !important;">
+                                        <option value="1">March 2023</option>
+                                        <option value="2">April 2023</option>
+                                        <option value="3">May 2023</option>
+                                        <option value="4">June 2023</option>
+                                    </select>
                                 </div>
-                                </div>
-
                             </div>
-
+                            <div id="chart"></div>
                         </div>
-
-                        <div class="col-lg-6 col-2 px-0">
-                            <button type="button"
-                                    class="btn b_color_b text-white col-lg-6 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold d-flex justify-content-evenly align-items-center  hover_block_b"
-                                    style="border-radius: 14px; height: 56px; text-decoration: none; color: black;width: 185px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-
-                                <i class="bi bi-plus fs-3 text-black"></i>
-                                Add Employee
-                            </button>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-        
-            </section> -->
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12 pb-5">
+                            <!-- Yearly Breakup -->
+                            <div class="card overflow-hidden border-0" style="border-radius: 24px !important;">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="fw-semibold mb-3">$36,358</h4>
+                                            <div class="d-flex align-items-center mb-3">
+                                    <span
+                                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-arrow-up-left text-success"></i>
+                                    </span>
+                                                <p class="text-dark me-1 fs-3 mb-0">+9%</p>
+                                                <p class="fs-3 mb-0">last year</p>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-4">
+                                                    <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                                                    <span class="fs-2">2023</span>
+                                                </div>
+                                                <div>
+                                                    <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                                                    <span class="fs-2">2023</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="d-flex justify-content-center">
+                                                <div id="breakup"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Monthly Earnings -->
+                            <div class="card border-0" style="border-radius: 24px !important;">
+                                <div class="card-body">
+                                    <div class="row alig n-items-start">
+                                        <div class="col-8">
+                                            <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
+                                            <h4 class="fw-semibold mb-3">$6,820</h4>
+                                            <div class="d-flex align-items-center pb-1">
+                                    <span
+                                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-arrow-down-right text-danger"></i>
+                                    </span>
+                                                <p class="text-dark me-1 fs-3 mb-0">+9%</p>
+                                                <p class="fs-3 mb-0">last year</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="d-flex justify-content-end">
+                                                <div
+                                                        class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                                                    <i class="ti ti-currency-dollar fs-6"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="earning"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock content %}
+
+{% block script %}
+    <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/libs/apexcharts/dist/apexcharts.min.js' %}"></script>
+    <script src="{% static 'assets/js/dashboard.js' %}"></script>
+{% endblock script %}

@@ -1,0 +1,262 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Start of content section -->
+    <section id="emp">
+
+        <div class="emp_set col-12 row ps-5 pb-4 m-0 justify-content-between align-items-center"
+             style="background-color: #f4f9fd; padding-top: 50px;">
+            <div class="col-4 px-0">
+                <h1 class="font_f_n">Archived Tasks ({{ t_count }})</h1>
+            </div>
+
+            <div class="col-4 d-flex justify-content-between align-items-center">
+
+                <div class="emp_f col-2 px-0">
+                    <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block"
+                       href="#" onclick="reloadPage()" style="border-radius: 14px; height: 56px;">
+                        <i class="bi bi-arrow-clockwise position-absolute fs-4 text-black"></i>
+                    </a>
+                </div>
+
+                <div class="emp_f col-2 px-0">
+
+                    <div class="dropdown">
+
+                        <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block"
+                           href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                           aria-controls="offcanvasWithBothOptions" style="border-radius: 14px; height: 56px;">
+                            <i class="bi bi-funnel position-absolute fs-4 text-black"></i>
+                        </a>
+
+                        <div class="offcanvas offcanvas-end my-3 me-5" style="border-radius: 24px;"
+                             data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                             aria-labelledby="offcanvasWithBothOptionsLabel">
+                            <div class="offcanvas-header px-4 py-4" style="border-bottom: 1px solid #E4E6E8;">
+                                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filters</h5>
+                                <button type="button" class="btn-close text-dark fs-6 border-0 p-3"
+                                        style="border-radius: 10px; background-color: #F4F9FD !important;"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body px-0">
+
+                                <form method="get">
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.task_title.id_for_label }}"
+                                               class="form-label  font_f_n color_g mb-2 fw-medium">Task Name</label>
+                                        <div>
+                                            {{ filter.form.task_title }}
+                                        </div>
+                                    </div>
+
+                                    <div class=" emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.deadline.id_for_label }}"
+                                               class="form-label  font_f_n color_g mb-2 fw-medium">Deadline
+                                            Range</label>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            {{ filter.form.deadline }} <!-- Start date -->
+                                        </div>
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.price.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Price Range</label>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            {{ filter.form.price }}
+                                        </div>
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.payment_t.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Payment Type</label>
+                                        {{ filter.form.payment_t }}
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.cost.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Cost Range</label>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            {{ filter.form.cost }}
+                                        </div>
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.program.id_for_label }}"
+                                               class="form-label  font_f_n color_g mb-2 fw-medium">Program Name</label>
+                                        <div>
+                                            {{ filter.form.program }}
+                                        </div>
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.program_sum.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Program Sum
+                                            Range</label>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            {{ filter.form.program_sum }}
+                                        </div>
+                                    </div>
+
+                                    <div class="emp_inp_d pt-2 pb-4 px-4">
+                                        <label for="{{ filter.form.customer.id_for_label }}"
+                                               class="form-label font_f_n color_g mb-2 fw-medium">Customer</label>
+                                        {{ filter.form.customer }}
+                                    </div>
+
+                                    <div class="py-3 pt-2 px-4 d-flex justify-content-between align-items-center">
+                                        <a class="btn col-lg-5 col-2 px-0 bg-white py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block"
+                                           href="{% url 'tasks_archive' %}"
+                                           style="border-radius: 14px; height: 56px; text-decoration: none;">Clear
+                                            filter</a>
+
+                                        <button type="submit"
+                                                class="btn b_color_b text-white col-lg-5     col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                                                style="border-radius: 14px; height: 56px; text-decoration: none;">
+                                            Save Filters
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 col-2 px-0">
+
+                    <a href="{% url 't_a_download_excel' %}?{{ request.GET.urlencode }}"
+                       class="btn text-white col-lg-6 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold d-flex justify-content-evenly align-items-center hover_block_g"
+                       style="border-radius: 14px; height: 56px; text-decoration: none; color: black;width: 185px; background-color: #00D097;">
+                        <i class="bi bi-plus fs-3 text-black"></i>
+                        Download Excel
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="emp_data row ps-5 me-2">
+
+            <div class="px-0 mb-2" style="height: 100%; overflow-y: auto; display: block;">
+                <div class="py-2 text-center" style="border-radius: 12px; background-color: #E6EDF5">
+                    <h1 class="font_f_n fs-6 fw-medium m-0">Fully Archive Tasks ({{ ta_count }})</h1>
+                </div>
+
+                <div class="px-0" style="display: block; height: 72vh; overflow-y: auto;">
+                    {% for task in filter.qs %}
+                        <div class="mt-4 px-4 py-3 bg-white d-flex justify-content-between align-items-center"
+                             style="border-radius: 18px;">
+                            <div class=" d-flex justify-content-start align-items-center" style="color: black;">
+                                <div class="">
+                                    <h3 class="font_f_n color_g2 fs-6 fw-medium mb-0">Task Name</h3>
+                                    <p class="font_f_n mb-0"
+                                       style="font-size: 14px;">{{ task.task_title|truncatechars_html:33 }}</p>
+                                </div>
+                            </div>
+                            <div class="col-9 d-flex justify-content-between align-items-center" style="color: black;">
+                                <div class="">
+                                    <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Deadline:</h3>
+                                    <p class="font_f_n mb-0"
+                                       style="font-size: 14px;">{{ task.deadline|date:'Y.m.d' }}</p>
+                                </div>
+                                <div class="">
+                                    <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Price:</h3>
+                                    <p class="font_f_n mb-0" style="font-size: 14px;">{{ task.price|intcomma }}</p>
+                                </div>
+                                <div class="">
+                                    <h3 class="font_f_n color_g2 fs-6 fw-light mb-0">Customer:</h3>
+                                    <p class="font_f_n mb-0" style="font-size: 14px;">{{ task.customer }}</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <a href="" class="btn border-0 px-4 py-2 font_f_n fw-medium"
+                                       style="border-radius: 10px; background-color: #9797971f; color: #7D8592;">
+                                        {{ task.role }}
+                                    </a>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <a href="" class="btn border-0 px-4 py-2 font_f_n fw-medium"
+                                            {% if task.payment_t == 'Process' %}
+                                       style="border-radius: 10px; background-color: #FFF4E5; color: #FFA534;"
+                                            {% elif task.payment_t == 'Cash' %}
+                                       style="border-radius: 10px; background-color: #E8FFEA; color: #2DB55D;"
+                                            {% elif task.payment_t == 'Card' %}
+                                       style="border-radius: 10px; background-color: #E9F0FF; color: #246BFD;"
+                                            {% endif %}>{{ task.payment_t }}
+                                    </a>
+                                </div>
+
+                                <div class="col-1">
+                                    <div class="dropdown">
+                                        <button class="btn d-flex justify-content-evenly align-items-center"
+                                                type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical fs-3"
+                                               style="color: black !important;"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="{% url 'task_detail' id=task.id %}?{{ request.GET.urlencode }}">
+                                                    Edit
+                                                </a>
+                                            </li>
+                                            <li><a class="dropdown-item"
+                                                   data-bs-toggle="modal"
+                                                   data-bs-target="#task_{{ task.id }}">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal for Delete task -->
+                            <div class="modal fade border-0" id="task_{{ task.id }}" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content border-0 py-2" style="border-radius: 24px;">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Checking</h1>
+                                            <button type="button" class="btn-close"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="font_f_n fs-5 mb-0">Are you sure you want to delete <span
+                                                    class="text-danger"
+                                                    style="text-decoration: line-through"> {{ task.task_title|truncatechars_html:60 }}</span>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer py-3 px-4 d-flex justify-content-around align-items-center">
+                                            <a class="btn col-lg-3 col-2 btn-outline-secondary py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold"
+                                               href="{% url 'tasks_archive' %}"
+                                               style="border-radius: 14px; height: 56px; text-decoration: none;">Close</a>
+                                            <a class="btn col-lg-3 col-2 btn-outline-danger py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold"
+                                               style="border-radius: 14px; height: 56px;text-decoration: none;"
+                                               href="{% url 'task_delete' id=task.id %}">Delete</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End modal for Delete task -->
+                        </div>
+
+                    {% empty %}
+                        <h3 class="font_f_n color_g2 pt-3">There is no such task</h3>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <!-- Start of content section -->
+
+{% endblock content %}

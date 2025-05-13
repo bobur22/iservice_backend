@@ -22,30 +22,52 @@
 <main class="sidebar_l px-3 py-3">
 
     {% include "layouts/navbar.html" %}
+
     {% block content %}
 
     {% endblock content %}
     </div>
 </main>
 
+
 <script src="{% static '/main/js/main.js' %}"></script>
 <script src="{% static '/bootstrap-5/js/bootstrap.bundle.min.js' %}"></script>
+
+{% block script %}
+
+{% endblock script %}
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const toggleButton = document.querySelector(".navbar-toggler");
         const sidebar = document.querySelector(".sidebarl_b");
-        const navbars = document.querySelectorAll(".navbar_b"); // select ALL navbar_b elements
+        const navbars = document.querySelectorAll(".navbar_b");
+
+        // Check localStorage on page load to restore state
+        if (localStorage.getItem("sidebarCollapsed") === "true") {
+            sidebar.classList.add("sidebar-collapsed");
+            navbars.forEach(function (navbar) {
+                navbar.classList.add("navbar_c");
+            });
+        }
 
         toggleButton.addEventListener("click", function () {
-            sidebar.classList.toggle("sidebar-collapsed");
-
+            const isCollapsed = sidebar.classList.toggle("sidebar-collapsed");
             navbars.forEach(function (navbar) {
-                navbar.classList.toggle("navbar_c"); // toggle .navbar_c for each navbar_b
+                navbar.classList.toggle("navbar_c");
             });
+
+            // Save the state to localStorage
+            localStorage.setItem("sidebarCollapsed", isCollapsed);
         });
+
+        // Reload function
+        window.reloadPage = function () {
+            location.reload(); // This reloads the current page
+        };
     });
 </script>
+
 
 </body>
 </html>

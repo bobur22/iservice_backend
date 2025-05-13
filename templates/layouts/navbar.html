@@ -1,7 +1,8 @@
 {% load static %}
 <div class="sidebarl_b d-flex flex-column flex-shrink-0 p-3 bg-light"
      style="height: 96vh;background-color: #ffffff !important;border-radius: 24px;">
-    <a href="/" class="d-flex justify-content-center align-items-center pt-4 link-dark text-decoration-none">
+    <a href="{% url 'dashboard' %}"
+       class="d-flex justify-content-center align-items-center pt-4 link-dark text-decoration-none">
         <img src="{% static '/main/img/Company-logo-b.svg' %}" alt="">
         <!-- <span class="fs-4 fw-medium font_f_n">Your Logo</span> -->
     </a>
@@ -14,7 +15,7 @@
                     active_
                 {% endif %}
                 d-flex align-items-center"
-                aria-current="page">
+               aria-current="page">
                 <i class="bi bi-grid-fill fs-5"></i>
                 <span>Dashboard</span>
             </a>
@@ -30,73 +31,65 @@
                 <span>Calendar</span>
             </a>
         </li>
+        {% if request.user.role == 'director' %}
+            <li>
+                {% url 'employees' as employees %}
+                <a href="{{ employees }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
+                {% if request.path == employees or '/employee_detail/' in request.path %}
+                    active_
+                {% endif %}
+                d-flex align-items-center">
+                    <i class="bi bi-person-badge-fill fs-5"></i>
+                    <span>Employees</span>
+                </a>
+            </li>
+        {% endif %}
         <li>
-            {% url 'employees' as employees %}
-            <a href="{{ employees }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
-                {% if request.path == employees %}
+            {% url 'customers' as customers %}
+            <a href="{{ customers }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
+                {% if request.path == customers or '/customer_detail/' in request.path %}
                     active_
                 {% endif %}
                 d-flex align-items-center">
                 <i class="bi bi-people-fill fs-5"></i>
-                <span>Employees</span>
+                <span>Customers</span>
             </a>
         </li>
-        <li>
-            {% url 'dashboard' as dashboard %}
-            <a href="{{ dashboard }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
-{#                {% if request.path == dashboard %}#}
-{#                    active_#}
-{#                {% endif %}#}
+        {% if request.user.role == 'director' %}
+            <li>
+                {% url 'locations' as locations %}
+                <a href="{{ locations }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
+                {% if request.path == locations %}
+                    active_
+                {% endif %}
                 d-flex align-items-center">
-                <i class="bi bi-buildings-fill fs-5"></i>
-                <span>Locations</span>
-            </a>
-        </li>
+                    <i class="bi bi-buildings-fill fs-5"></i>
+                    <span>Locations</span>
+                </a>
+            </li>
+        {% endif %}
         <li>
-            {% url 'dashboard' as dashboard %}
-            <a href="{{ dashboard }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
-{#                {% if request.path == dashboard %}#}
-{#                    active_#}
-{#                {% endif %}#}
-                d-flex align-items-center">
-                <i class="bi bi-building-fill fs-5"></i>
-                <span>Project - 1</span>
-            </a>
-        </li>
-        <li>
-            {% url 'dashboard' as dashboard %}
-            <a href="{{ dashboard }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
-{#                {% if request.path == dashboard %}#}
-{#                    active_#}
-{#                {% endif %}#}
+            {% url 'tasks' as tasks %}
+            <a href="{{ tasks }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
+                {% if request.path == tasks or '/task_detail/' in request.path %}
+                    active_
+                {% endif %}
                 d-flex align-items-center">
                 <i class="bi bi-building-fill fs-5"></i>
-                <span>Project - 2</span>
+                <span>Work</span>
             </a>
         </li>
         <li>
-            {% url 'dashboard' as dashboard %}
-            <a href="{{ dashboard }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
-{#                {% if request.path == dashboard %}#}
-{#                    active_#}
-{#                {% endif %}#}
+            {% url 'tasks_archive' as tasks_archive %}
+            <a href="{{ tasks_archive }}" class="nav-link color_g font_f_n mb-2 fs-6 fw-medium
+                {% if request.path == tasks_archive %}
+                    active_
+                {% endif %}
                 d-flex align-items-center">
-                <i class="bi bi-building-fill fs-5"></i>
-                <span>Project - 3</span>
+                <i class="bi bi-archive-fill fs-5"></i>
+                <span>Archive</span>
             </a>
         </li>
-        <li>
-            {% url 'dashboard' as dashboard %}
-            <a href="{{ dashboard }}" class="nav-link color_g font_f_n fs-6 fw-medium
-{#                {% if request.path == dashboard %}#}
-{#                    active_#}
-{#                {% endif %}#}
-                d-flex align-items-center">
-                <i class="bi bi-building-fill fs-5"></i>
-                <span>Project - 4</span>
-            </a>
-        </li>
-
     </ul>
 
     <!-- <img src="/main/img/Support.svg" alt=""> -->
@@ -110,7 +103,6 @@
     </ul>
 
 </div>
-
 <div class="col-10 navbar_b">
     <div class="col-12 row row ps-4 m-0 justify-content-between align-items-center">
 
@@ -125,13 +117,6 @@
                 </li>
             </ul>
 
-            <div class="form-control ps-3 m-0 border-0 d-flex align-items-center col-lg-7 col-4 px-0 i-search"
-                 style="background: none;border-radius: 14px;">
-                <input class="form-control py-3 me-1 position-relative f-c-green border-0"
-                       id="search" style="padding-left: 58px;border-radius: 14px;" type="search" placeholder="Search"
-                       aria-label="Search">
-                <i class="bi bi-search position-absolute ps-4 fs-4 f-c-green"></i>
-            </div>
         </div>
 
         <div class="col-4 d-flex justify-content-end align-items-center">
@@ -140,31 +125,45 @@
 
                 <div class="dropdown">
 
-                    <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center hover_block" href="#"
+                    <a class="btn bg-white py-3 d-flex justify-content-evenly align-items-center position-relative hover_block"
+                       href="#"
                        role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"
                        style="border-radius: 14px; height: 56px;">
-                        <i class="bi bi-bell position-absolute fs-4 text-black"></i>
+
+                        <!-- Bell icon -->
+                        <i class="bi bi-bell fs-4 text-black"></i>
+
+                        <!-- Notification badge -->
+                        {% if notifications %}
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ notifications|length }}
+                            </span>
+                        {% endif %}
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        {% if notifications %}
+                            {% for task in notifications %}
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'task_detail' id=task.id %}">
+                                        {{ task.task_title|truncatechars_html:15 }} — {{ task.deadline }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li><a class="dropdown-item text-muted" href="#">No upcoming tasks</a></li>
+                        {% endif %}
                     </ul>
+
                 </div>
 
             </div>
 
             <a class="col-lg-6 col-2 px-0 bg-white py-3 font_f_n fs-6 fw-bold d-flex justify-content-evenly align-items-center hover_block"
                href="#" style="border-radius: 14px; height: 56px; text-decoration: none; color: black;">
-                <img src="{% static '/main/img/photo.svg' %}" alt="" class="" style="height: 35px;">
-                Evan Yates
+                <img src="{% static '/main/img/profile_image.png' %}" alt="" class=""
+                     style="height: 35px; border-radius: 30px">
+                {{ request.user.full_name }}
             </a>
 
         </div>

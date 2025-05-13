@@ -2,4 +2,8 @@ asgiref==3.8.1
 crispy-bootstrap5==2025.4
 Django==5.2
 django-crispy-forms==2.4
+django-filter==25.1
+et_xmlfile==2.0.0
+openpyxl==3.1.5
+phonenumbers==9.0.4
 sqlparse==0.5.3

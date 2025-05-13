@@ -1,0 +1,146 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+    <section id="emp" class="pt-5" style="height: 100%;">
+
+        <div class="container px-5">
+            <form method="POST" class="px-5">
+                {% csrf_token %}
+                <div class="modal-body px-0" style="overflow-y: auto; max-height: 70vh;">
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Full Name</p>
+                        <div class="">
+                            {{ form.full_name }}
+                            {% for error in form.full_name.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Email</p>
+                        <div class="">
+                            {{ form.email }}
+                            {% for error in form.email.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Phone Number</p>
+                        <div class="">
+                            {{ form.p_number }}
+                            {% for error in form.p_number.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Birthdate</p>
+                        <div class="">
+                            {{ form.birthdate }}
+                            {% for error in form.birthdate.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Position</p>
+                        <div class="">
+                            {{ form.position }}
+                            {% for error in form.position.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Password</p>
+                        <div class="">
+                            {{ form.password }}
+                            {% for error in form.password.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Confirm Password</p>
+                        <div class="">
+                            {{ form.confirm_password }}
+                            {% for error in form.confirm_password.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Priority</p>
+                        <div class="">
+                            {{ form.role }}
+                            {% for error in form.role.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="emp_inp_d pt-2 pb-4">
+                        <p class="font_f_n color_g mb-2 fw-medium">Location</p>
+                        <div class="">
+                            {{ form.location }}
+                            {% for error in form.location.errors %}
+                                <p class="text-danger fw-bold mt-2">
+                                    <i class="bi bi-exclamation-circle me-1"></i>
+
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-4 pt-4 px-0 border-0 d-flex justify-content-between align-items-center">
+                    <a class="btn col-lg-2 col-2 px-0 bg-white py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block"
+                       href="{% url 'employees' %}" style="border-radius: 14px; height: 56px; text-decoration: none;">Cancel</a>
+
+                    <button type="submit"
+                            class="btn b_color_b text-white col-lg-2 col-2 py-3 shadow-sm bg-body-tertiary font_f_n fs-6 fw-bold hover_block_b"
+                            style="border-radius: 14px; height: 56px; text-decoration: none;">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}
